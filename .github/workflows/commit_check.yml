@@ -1,8 +1,7 @@
 name: commit_check
 on: 
-  push:
-    branches:
-      - jira-checker
+  pull_request:
+    branches: main
       
 env:
   atlassian_user: ${{ secrets.ATLASSIAN_USER }}
