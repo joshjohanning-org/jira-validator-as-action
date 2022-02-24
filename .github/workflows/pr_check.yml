@@ -1,8 +1,7 @@
 name: pr_check
 on: 
   pull_request:
-    branches: 
-      - jira-issue-validation
+    branches: main
       
 env:
   atlassian_user: ${{ secrets.ATLASSIAN_USER }}
