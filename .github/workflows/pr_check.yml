@@ -31,8 +31,8 @@ jobs:
             ISSUE=${COMMIT_MESSAGE%\]*}
             if [ $ISSUE == "" ]
             then
-              echo ""
-              echo ""
+              echo "..."
+              echo "..."
               echo "Pull request contains invalid commit: ${COMMIT_SHA}. This commit lacks a valid JIRA issue key in its description, in the expected format: [JIRA-KEY] -- failing operation."
               exit 1
             fi
@@ -42,8 +42,8 @@ jobs:
               EVENT_MESSAGE="{\"body\":\"A GitHub pull request has been linked to this issue: https://github.com/${GITHUB_REPOSITORY}/pull/${PULL_NUMBER}\"}"
               curl -s -X POST -u "${{ env.atlassian_user }}:${{ env.atlassian_key }}" -H "Accept:application/json" -H "Content-Type:application/json" -d "${EVENT_MESSAGE}" "https://${{ env.atlassian_url }}/rest/api/2/issue/${ISSUE}/comment"
             else
-              echo ""
-              echo ""
+              echo "..."
+              echo "..."
               echo "JIRA issue does not appear to be active in a sprint. Instead the issue status is: ${ISSUE_STATUS} -- Failing operation."
               exit 1
             fi
