@@ -1,7 +1,6 @@
 name: commit_check
 on: 
-  pull_request:
-    branches: main
+  push:
       
 env:
   atlassian_user: ${{ secrets.ATLASSIAN_USER }}
